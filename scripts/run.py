@@ -121,7 +121,7 @@ def write_index(changes, run_date):
     lines = []
     lines.append("<!doctype html><meta charset='utf-8'>")
     lines.append("<title>Competitor Monitor</title>")
-    lines.append("<style>body{font-family:system-ui,Arial;margin:24px} .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0} .muted{color:#666} code{background:#f5f5f5;padding:2px 6px;border-radius:6px}</style>")
+    lines.append("<style>body{font-family:system-ui,Arial;margin:24px} .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0} .muted{color:#666} code{background:#f5f5f5;padding:2px 6px;border-radius:6px} .links{margin-top:10px} .links a{margin-right:10px}</style>")
     lines.append(f"<h1>Competitor Monitor</h1>")
     lines.append(f"<p class='muted'>Last run: <code>{run_date}</code></p>")
     lines.append("<h2>Latest changes</h2>")
