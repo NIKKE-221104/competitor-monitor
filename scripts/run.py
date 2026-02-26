@@ -117,38 +117,74 @@ def retention_cleanup():
                 continue
 
 def write_index(changes, run_date):
-    # 단순하지만 쓸만한 index 생성
+    def write_index(sites, changes, run_date):
+    # changes를 site_key별로 묶기
+    by_site = {s["key"]: [] for s in sites}
+    for c in changes:
+        by_site.setdefault(c["site_key"], []).append(c)
+
     lines = []
-    lines.append("<!doctype html><meta charset='utf-8'>")
+    lines.append("<!doctype html>")
+    lines.append("<meta charset='utf-8'>")
     lines.append("<title>Competitor Monitor</title>")
-    lines.append("<style>body{font-family:system-ui,Arial;margin:24px} .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0} .muted{color:#666} code{background:#f5f5f5;padding:2px 6px;border-radius:6px} .links{margin-top:10px} .links a{margin-right:10px}</style>")
-    lines.append(f"<h1>Competitor Monitor</h1>")
+    lines.append(
+        "<style>"
+        "body{font-family:system-ui,Arial;margin:24px;}"
+        "h1{margin:0 0 8px 0;}"
+        ".muted{color:#666;}"
+        ".card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0;}"
+        ".badge{display:inline-block;min-width:24px;padding:2px 8px;border-radius:999px;"
+        "background:#111;color:#fff;font-size:12px;vertical-align:middle;margin-left:8px;}"
+        "code{background:#f5f5f5;padding:2px 6px;border-radius:6px;}"
+        "summary{cursor:pointer;font-weight:700;}"
+        ".item{margin-top:10px;padding-top:10px;border-top:1px dashed #ddd;}"
+        ".links a{margin-right:10px;}"
+        "</style>"
+    )
+
+    lines.append("<h1>Competitor Monitor</h1>")
     lines.append(f"<p class='muted'>Last run: <code>{run_date}</code></p>")
-    lines.append("<h2>Latest changes</h2>")
+    lines.append("<h2>Sites</h2>")
+    lines.append("<p class='muted'>변동 0이어도 목록에 표시됨. 사이트를 눌러서 세부 확인.</p>")
 
-    if not changes:
-        lines.append("<p>No changes detected (based on text hash).</p>")
-    else:
-        for c in changes:
-            lines.append("<div class='card'>")
-            lines.append(f"<div><b>{c['site_name']}</b> <span class='muted'>({c['site_key']})</span></div>")
-            lines.append(f"<div class='muted'>Target: <code>{c['label']}</code></div>")
-            lines.append(f"<div class='muted'>URL: <a href='{c['url']}' target='_blank'>{c['url']}</a></div>")
-            # links
-            rel = c["rel_dir"]
-            shot_top = f"{rel}/{c['label']}_top.png"
-            shot_full = f"{rel}/{c['label']}.png"
-            diff = f"{rel}/{c['label']}_diff.html"
+    for s in sites:
+        key = s["key"]
+        site_name = s.get("name", key)
+        url = s.get("url", "")
+        items = by_site.get(key, [])
+        cnt = len(items)
 
-            lines.append("<div class='links'>")
-            link_html = (
-                f"<a href='{shot_top}'>Screenshot</a> · "
-                f"<a href='{shot_full}'>Full</a> · "
-                f"<a href='{diff}'>Text diff</a>"
-            )
-            lines.append(link_html)
-            lines.append("</div>")
-            lines.append("</div>")
+        lines.append("<div class='card'>")
+        lines.append(
+            f"<details {'open' if cnt else ''}>"
+            f"<summary>{site_name} <span class='muted'>({key})</span>"
+            f"<span class='badge'>{cnt}</span></summary>"
+        )
+        if url:
+            lines.append(f"<div class='muted' style='margin-top:8px'>URL: <a href='{url}' target='_blank'>{url}</a></div>")
+
+        if cnt == 0:
+            lines.append("<div class='muted' style='margin-top:10px'>No changes detected (based on text hash).</div>")
+        else:
+            for c in items:
+                rel = c["rel_dir"]
+                label = c["label"]
+
+                shot_top = f"{rel}/{label}_top.png"
+                shot_full = f"{rel}/{label}.png"
+                diff = f"{rel}/{label}_diff.html"
+
+                lines.append("<div class='item'>")
+                lines.append(f"<div><b>Target:</b> <code>{label}</code></div>")
+                lines.append("<div class='links' style='margin-top:6px'>"
+                             f"<a href='{shot_top}'>Screenshot</a>"
+                             f"<a href='{shot_full}'>Full</a>"
+                             f"<a href='{diff}'>Text diff</a>"
+                             "</div>")
+                lines.append("</div>")
+
+        lines.append("</details>")
+        lines.append("</div>")
 
     (DOCS_DIR / "index.html").write_text("\n".join(lines), encoding="utf-8")
 
@@ -268,7 +304,7 @@ def main():
         browser.close()
 
     # 인덱스 갱신
-    write_index(changes, run_date)
+    write_index(sites, changes, run_date)
 
     # 보관정책 적용
     retention_cleanup()
