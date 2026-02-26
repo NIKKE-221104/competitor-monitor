@@ -136,10 +136,17 @@ def write_index(changes, run_date):
             lines.append(f"<div class='muted'>URL: <a href='{c['url']}' target='_blank'>{c['url']}</a></div>")
             # links
             rel = c["rel_dir"]
-            shot = f"{rel}/{c['label']}.png"
+            shot_top = f"{rel}/{c['label']}_top.png"
+            shot_full = f"{rel}/{c['label']}.png"
             diff = f"{rel}/{c['label']}_diff.html"
-            lines.append(f"<div style='margin-top:10px'>")
-            lines.append(f"<a href='{shot}'>Screenshot</a> · <a href='{diff}'>Text diff</a>")
+
+            lines.append("<div class='links'>")
+            link_html = (
+                f"<a href='{shot_top}'>Screenshot</a> · "
+                f"<a href='{shot_full}'>Full</a> · "
+                f"<a href='{diff}'>Text diff</a>"
+            )
+            lines.append(link_html)
             lines.append("</div>")
             lines.append("</div>")
 
@@ -181,6 +188,7 @@ def main():
                 rel_dir = f"assets/{site_key}/{run_date}"
 
                 shot_path = day_dir / f"{label}.png"
+                shot_top_path = day_dir / f"{label}_top.png"
                 diff_path = day_dir / f"{label}_diff.html"
                 html_path = day_dir / f"{label}.html"
 
@@ -204,10 +212,16 @@ def main():
                     pass
 
                 # 스크린샷(풀페이지)
+                # 1) top(첫 화면) 스샷
+                try:
+                    page.screenshot(path=str(shot_top_path), full_page=False)
+                except Exception:
+                    pass
+
+                # 2) full(전체) 스샷
                 try:
                     page.screenshot(path=str(shot_path), full_page=True)
                 except Exception:
-                    # 스샷 실패해도 계속 진행
                     pass
 
                 # HTML 저장 + 텍스트 추출
