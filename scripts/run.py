@@ -116,18 +116,17 @@ def retention_cleanup():
             except Exception:
                 continue
 
-def write_index(changes, run_date):
     def write_index(sites, changes, run_date):
-    # changes를 site_key별로 묶기
-    by_site = {s["key"]: [] for s in sites}
-    for c in changes:
+        # changes를 site_key별로 묶기
+        by_site = {s["key"]: [] for s in sites}
+        for c in changes:
         by_site.setdefault(c["site_key"], []).append(c)
 
-    lines = []
-    lines.append("<!doctype html>")
-    lines.append("<meta charset='utf-8'>")
-    lines.append("<title>Competitor Monitor</title>")
-    lines.append(
+        lines = []
+        lines.append("<!doctype html>")
+        lines.append("<meta charset='utf-8'>")
+        lines.append("<title>Competitor Monitor</title>")
+        lines.append(
         "<style>"
         "body{font-family:system-ui,Arial;margin:24px;}"
         "h1{margin:0 0 8px 0;}"
@@ -140,14 +139,14 @@ def write_index(changes, run_date):
         ".item{margin-top:10px;padding-top:10px;border-top:1px dashed #ddd;}"
         ".links a{margin-right:10px;}"
         "</style>"
-    )
+        )
 
-    lines.append("<h1>Competitor Monitor</h1>")
-    lines.append(f"<p class='muted'>Last run: <code>{run_date}</code></p>")
-    lines.append("<h2>Sites</h2>")
-    lines.append("<p class='muted'>변동 0이어도 목록에 표시됨. 사이트를 눌러서 세부 확인.</p>")
+        lines.append("<h1>Competitor Monitor</h1>")
+        lines.append(f"<p class='muted'>Last run: <code>{run_date}</code></p>")
+        lines.append("<h2>Sites</h2>")
+        lines.append("<p class='muted'>변동 0이어도 목록에 표시됨. 사이트를 눌러서 세부 확인.</p>")
 
-    for s in sites:
+        for s in sites:
         key = s["key"]
         site_name = s.get("name", key)
         url = s.get("url", "")
