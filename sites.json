@@ -1,0 +1,9 @@
+[
+  {
+    "key": "ecount",
+    "name": "이카운트",
+    "targets": [
+      { "label": "main", "url": "https://www.ecount.com/" }
+    ]
+  }
+]
