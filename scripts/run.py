@@ -119,8 +119,9 @@ def retention_cleanup():
     def write_index(sites, changes, run_date):
         # changes를 site_key별로 묶기
         by_site = {s["key"]: [] for s in sites}
+        
         for c in changes:
-        by_site.setdefault(c["site_key"], []).append(c)
+            by_site.setdefault(c["site_key"], []).append(c)
 
         lines = []
         lines.append("<!doctype html>")
@@ -147,11 +148,11 @@ def retention_cleanup():
         lines.append("<p class='muted'>변동 0이어도 목록에 표시됨. 사이트를 눌러서 세부 확인.</p>")
 
         for s in sites:
-        key = s["key"]
-        site_name = s.get("name", key)
-        url = s.get("url", "")
-        items = by_site.get(key, [])
-        cnt = len(items)
+            key = s["key"]
+            site_name = s.get("name", key)
+            url = s.get("url", "")
+            items = by_site.get(key, [])
+            cnt = len(items)
 
         lines.append("<div class='card'>")
         lines.append(
