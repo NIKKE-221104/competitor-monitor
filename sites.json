@@ -3,7 +3,36 @@
     "key": "ecount",
     "name": "이카운트",
     "targets": [
-      { "label": "main", "url": "https://www.ecount.com/" }
+      { "label": "main", "url": "https://www.ecount.com/kr/" },
+      { "label": "pricing", "url": "https://www.ecount.com/kr/pricing" },
+      { "label": "product", "url": "https://www.ecount.com/kr/features" }
+    ]
+  },
+  {
+    "key": "car_magic",
+    "name": "정비마법사",
+    "targets": [
+      { "label": "main", "url": "https://www.carmagic.co.kr/" },
+      { "label": "pricing", "url": "https://www.carmagic.co.kr/" },
+      { "label": "product", "url": "https://www.carmagic.co.kr/" }
+    ]
+  },
+  {
+    "key": "iquest",
+    "name": "아이퀘스트",
+    "targets": [
+      { "label": "main", "url": "https://www.iquest.co.kr/" },
+      { "label": "pricing", "url": "https://www.iquest.co.kr/" },
+      { "label": "product", "url": "https://www.iquest.co.kr/" }
+    ]
+  },
+  {
+    "key": "autohost",
+    "name": "오토호스",
+    "targets": [
+      { "label": "main", "url": "https://www.auto-host.co.kr/" },
+      { "label": "pricing", "url": "https://www.auto-host.co.kr/" },
+      { "label": "product", "url": "https://www.auto-host.co.kr/" }
     ]
   }
 ]
