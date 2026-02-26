@@ -1,28 +1,36 @@
 <!doctype html>
 <meta charset='utf-8'>
 <title>Competitor Monitor</title>
-<style>body{font-family:system-ui,Arial;margin:24px;}h1{margin:0 0 8px 0;}.muted{color:#666;}.card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0;}.badge{display:inline-block;min-width:24px;padding:2px 8px;border-radius:999px;background:#111;color:#fff;font-size:12px;vertical-align:middle;margin-left:8px;}code{background:#f5f5f5;padding:2px 6px;border-radius:6px;}summary{cursor:pointer;font-weight:700;}.item{margin-top:10px;padding-top:10px;border-top:1px dashed #ddd;}.links a{margin-right:10px;}</style>
+<style>body{font-family:system-ui,Arial;margin:24px;}h1{margin:0 0 8px 0;}.muted{color:#666;}.card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0;}.badge{display:inline-block;min-width:24px;padding:2px 10px;border-radius:999px;background:#111;color:#fff;font-size:12px;vertical-align:middle;margin-left:8px;}code{background:#f5f5f5;padding:2px 6px;border-radius:6px;}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}.row a{margin-left:auto;}.item{margin-top:10px;padding-top:10px;border-top:1px dashed #ddd;}.links a{margin-right:10px;}</style>
 <h1>Competitor Monitor</h1>
 <p class='muted'>Last run: <code>2026-02-26</code></p>
 <h2>Sites</h2>
-<p class='muted'>변동 0이어도 목록에 표시됨. 사이트를 눌러서 세부 확인.</p>
+<p class='muted'>요약에서 상태 확인 → 상세 페이지에서 스크린샷/디프 확인.</p>
 <div class='card'>
-<details ><summary>이카운트 <span class='muted'>(ecount)</span><span class='badge'>0</span></summary>
-<div class='muted' style='margin-top:10px'>No changes detected (based on text hash).</div>
-</details>
+<div class='row'>
+<div><b>이카운트</b> <span class='muted'>(ecount)</span><span class='badge'>변화 없음</span></div>
+<a href='sites/ecount.html'>상세보기</a>
+</div>
+<div class='muted' style='margin-top:10px'>변화 없음</div>
 </div>
 <div class='card'>
-<details ><summary>정비마법사 <span class='muted'>(car_magic)</span><span class='badge'>0</span></summary>
-<div class='muted' style='margin-top:10px'>No changes detected (based on text hash).</div>
-</details>
+<div class='row'>
+<div><b>정비마법사</b> <span class='muted'>(car_magic)</span><span class='badge'>오류</span></div>
+<a href='sites/car_magic.html'>상세보기</a>
+</div>
+<div class='muted' style='margin-top:10px'>오류 3건 (상세에서 확인)</div>
 </div>
 <div class='card'>
-<details ><summary>아이퀘스트 <span class='muted'>(iquest)</span><span class='badge'>0</span></summary>
-<div class='muted' style='margin-top:10px'>No changes detected (based on text hash).</div>
-</details>
+<div class='row'>
+<div><b>아이퀘스트</b> <span class='muted'>(iquest)</span><span class='badge'>변화 1건</span></div>
+<a href='sites/iquest.html'>상세보기</a>
+</div>
+<div class='muted' style='margin-top:10px'>변화 1건</div>
 </div>
 <div class='card'>
-<details ><summary>오토호스 <span class='muted'>(autohost)</span><span class='badge'>0</span></summary>
-<div class='muted' style='margin-top:10px'>No changes detected (based on text hash).</div>
-</details>
+<div class='row'>
+<div><b>오토호스</b> <span class='muted'>(autohost)</span><span class='badge'>오류</span></div>
+<a href='sites/autohost.html'>상세보기</a>
+</div>
+<div class='muted' style='margin-top:10px'>오류 3건 (상세에서 확인)</div>
 </div>
