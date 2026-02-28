@@ -7,11 +7,11 @@
     "car_magic::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "car_magic::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "iquest::main": "e2c24990e9b9888505dd37880fd8576f89a12a2c5476be0b77522caadb00de19",
-    "iquest::pricing": "65cdfef76bd56237536a6659ee9c9e43600b34c7e1e0da3f968c77a980e7cbbe",
+    "iquest::pricing": "e2c24990e9b9888505dd37880fd8576f89a12a2c5476be0b77522caadb00de19",
     "iquest::product": "65cdfef76bd56237536a6659ee9c9e43600b34c7e1e0da3f968c77a980e7cbbe",
     "autohost::main": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "last_run": "2026-02-28"
+  "last_run": "2026-03-01"
 }
