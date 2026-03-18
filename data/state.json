@@ -7,11 +7,11 @@
     "car_magic::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "car_magic::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "iquest::main": "d29608366303d5a2bcd9debbeadaef54928c281dd80f92253c166f3b0c4a071a",
-    "iquest::pricing": "fe0ceea7b5f6d1360d74484b96f57021f410ded0ba1ebcda3a13b2c3a7d8a168",
-    "iquest::product": "fe0ceea7b5f6d1360d74484b96f57021f410ded0ba1ebcda3a13b2c3a7d8a168",
+    "iquest::pricing": "d29608366303d5a2bcd9debbeadaef54928c281dd80f92253c166f3b0c4a071a",
+    "iquest::product": "d29608366303d5a2bcd9debbeadaef54928c281dd80f92253c166f3b0c4a071a",
     "autohost::main": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "last_run": "2026-03-18"
+  "last_run": "2026-03-19"
 }
