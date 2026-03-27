@@ -7,11 +7,11 @@
     "car_magic::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "car_magic::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "iquest::main": "bb8bf9a6af6c1f8e766779706f8b2b74b67f3509f77baddee708974558d1591f",
-    "iquest::pricing": "c506e63a36281500670de1522e6a4babba7aa869036de169098613424976c606",
-    "iquest::product": "c506e63a36281500670de1522e6a4babba7aa869036de169098613424976c606",
+    "iquest::pricing": "e93f4a8a78eb47b4cb3158d2d092868761aa59fd18ef10de0b35570fc2d5d095",
+    "iquest::product": "dc732ddcbdb5be0862c3d48d112987390455e03c067ea5125c0305f4788493cd",
     "autohost::main": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::pricing": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autohost::product": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "last_run": "2026-03-27"
+  "last_run": "2026-03-28"
 }
